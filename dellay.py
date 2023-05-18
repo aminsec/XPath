@@ -7,7 +7,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-u", type=str, required=False, help="gets a single url")
 parser.add_argument("-f", type=str, required=False, help="gets a file path to read urls")
 parser.add_argument("-w", type=str, required=False, default="XSS",help="gets a keyword to put in url")
-
 args = parser.parse_args()
 
 def single():
@@ -26,11 +25,10 @@ def single():
 
     loop_len = 0
     for vals in pathPart:
-        print(url.scheme + "://" + url.netloc + path.replace(vals, vals + "%22" + keyword, 1))
+        print(url.scheme + "://" + url.netloc + path.replace(vals, vals + keyword, 1))
         loop_len += 1
         if loop_len == len(pathPart):
-            print(url.scheme + "://" +url.netloc + url.path + "/%22" + keyword)
-
+            print(url.scheme + "://" +url.netloc + url.path + "/" + keyword)
 
 def multiple():
     #getting values
@@ -58,10 +56,10 @@ def multiple():
 
             loop_len = 0
             for vals in pathPart:
-                print(url.scheme + "://" + url.netloc + path.replace(vals, vals + "%22" + keyword))
+                print(url.scheme + "://" + url.netloc + path.replace(vals, vals + keyword))
                 loop_len += 1
                 if loop_len == len(pathPart):
-                    print(url.scheme + "://" +url.netloc + url.path + "/%22" + keyword)
+                    print(url.scheme + "://" +url.netloc + url.path + "/" + keyword)
     else:
         print("The file is not exist")
 
@@ -71,4 +69,3 @@ elif args.f:
     multiple()
 else:
     exit()
-
