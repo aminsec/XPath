@@ -9,9 +9,13 @@ python3 dellay.py -h
 ```
 # Usage
 There is a simple usage of this tool: 
-```python3 dellay.py -u <url> -w <a random keyword>```
+```
+python3 dellay.py -u <url> -w <a random keyword>
+```
 Example: 
-```python3 dellay.py -u https://example.com/account/dashboard/profile -w XSS```
+```
+python3 dellay.py -u https://example.com/account/dashboard/profile -w XSS
+```
 Output: 
 ```
 https://example.com/accountXSS/dashboard/profile
